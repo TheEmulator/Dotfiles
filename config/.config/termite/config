@@ -1,0 +1,43 @@
+[options]
+# font
+font = Hack
+
+[colors]
+
+# special
+foreground      = #a7a7a7
+foreground_bold = #a7a7a7
+cursor          = #a7a7a7
+background      = rgba(12, 12, 12, 0.8)
+
+# black
+color0  = #282a2e
+color8  = #373b41
+
+# red
+color1  = #a58c8c
+color9  = #ccaaaa
+
+# green
+color2  = #939484
+color10 = #babd9a
+
+# yellow
+color3  = #dec6b5
+color11 = #f0debb
+
+# blue
+color4  = #81919d
+color12 = #a8b4be
+
+# magenta
+color5  = #8b7d8f
+color13 = #b7a9bb
+
+# cyan
+color6  = #7f8d8b
+color14 = #a8bebb
+
+# white
+color7  = #777c80
+color15 = #c8c8c8
