@@ -2,13 +2,14 @@
 # font
 font = Hack
 
+# styling
+
 [colors]
 
 # special
 foreground      = #a7a7a7
 foreground_bold = #a7a7a7
 cursor          = #a7a7a7
-background      = rgba(12, 12, 12, 0.8)
 
 # black
 color0  = #282a2e

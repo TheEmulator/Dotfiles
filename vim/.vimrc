@@ -32,6 +32,8 @@ Plug 'tpope/vim-sensible'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/nerdcommenter'
 
 call plug#end()
 
@@ -152,6 +154,8 @@ set wrap "Wrap lines
 " Return to last edit position when opening files (You want this!)
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
+" Set relative line numbers in each file
+set relativenumber
 
 """"""""""""""""""""""""""""""
 " => Status line
@@ -166,10 +170,6 @@ set laststatus=2
 " Remap VIM 0 to first non-blank character
 map 0 ^
 
-
-if has("autocmd")
-    autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
-endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
