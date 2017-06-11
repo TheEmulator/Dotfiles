@@ -34,6 +34,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdcommenter'
+Plug 'tmhedberg/simpylfold'
+Plug 'davidhalter/jedi-vim'
 
 call plug#end()
 
@@ -85,6 +87,9 @@ set showmatch
 
 " Add a bit extra margin to the left
 set foldcolumn=1
+
+" Where to split when using :sp
+set splitbelow
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -140,6 +145,19 @@ set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
 
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+
+" Python stuff
+au BufNewFile, BufRead *.py
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
 
 """"""""""""""""""""""""""""""
 " => Visual mode related
@@ -170,7 +188,14 @@ set laststatus=2
 " Remap VIM 0 to first non-blank character
 map 0 ^
 
+"split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
+" Enable folding with spacebar
+nnoremap <space> za
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Spell checking

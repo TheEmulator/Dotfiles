@@ -16,3 +16,4 @@ export PS1="\[\033[38;5;12m\][\[$(tput sgr0)\]\[\033[38;5;10m\]\u\[$(tput sgr0)\
 eval "`dircolors -b $DIR_COLORS`"
 
 (wal -r -t &)
+
