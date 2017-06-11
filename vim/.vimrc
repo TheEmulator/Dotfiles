@@ -36,6 +36,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tmhedberg/simpylfold'
 Plug 'davidhalter/jedi-vim'
+Plug 'python-mode/python-mode'
 
 call plug#end()
 
