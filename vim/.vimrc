@@ -1,6 +1,6 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Maintainer: 
-"       Brendan Macewen (aka TheEmulator)
+"       Brendan MacEwen (aka TheEmulator)
 "       https://github.com/TheEmulator     
 " Info:
 "	    The section formattting of this file was taken from amix's basic vimrc config, however, the vimrc itself is being built to serve my own needs. 
