@@ -28,15 +28,19 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
+Plug 'tpope/vim-surround'
+Plug 'junegunn/fzf'
+Plug 'honza/vim-snippets'
+Plug 'majutsushi/tagbar'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'tpope/vim-sensible'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdcommenter'
-Plug 'tmhedberg/simpylfold'
-Plug 'davidhalter/jedi-vim'
-Plug 'python-mode/python-mode'
+Plug 'nanotech/jellybeans.vim'
+Plug 'morhetz/gruvbox'
 
 call plug#end()
 
@@ -55,7 +59,9 @@ filetype indent on
 " Set to auto read when a file is changed from the outside
 set autoread
 
-
+" I don't like the default mapping of leader
+let mapleader = ","
+let g:mapleader = ","
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
@@ -87,7 +93,7 @@ set magic
 set showmatch 
 
 " Add a bit extra margin to the left
-set foldcolumn=1
+"set foldcolumn=1
 
 " Where to split when using :sp
 set splitbelow
@@ -98,15 +104,18 @@ set splitbelow
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable syntax highlighting
 syntax enable 
-
+set termguicolors
+set t_Co=256
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 " Allow color schemes to do bright colors without forcing bold.
-if &t_Co == 8 && $TERM !~# '^linux\|^Eterm'
-  set t_Co=16
-endif
 
+" Disable Background Color Erase
+let &t_ut=''
 " Set colorscheme and background
-colorscheme desert
+let g:gruvbox_contrast_dark='medium'
 set background=dark
+colorscheme gruvbox
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf-8
@@ -150,15 +159,6 @@ set wrap "Wrap lines
 set foldmethod=indent
 set foldlevel=99
 
-" Python stuff
-au BufNewFile, BufRead *.py
-    \ set tabstop=4
-    \ set softtabstop=4
-    \ set shiftwidth=4
-    \ set textwidth=79
-    \ set expandtab
-    \ set autoindent
-    \ set fileformat=unix
 
 """"""""""""""""""""""""""""""
 " => Visual mode related
@@ -182,7 +182,6 @@ set relativenumber
 " Always show the status line
 set laststatus=2
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -198,6 +197,12 @@ nnoremap <C-H> <C-W><C-H>
 " Enable folding with spacebar
 nnoremap <space> za
 
+" Plugin specific mappings
+map <leader>p :PlugInstall<cr>
+map <leader>n :NERDTree<cr>
+nmap <F8> :TagbarToggle<CR>
+map ; :FZF<CR>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Spell checking
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -208,10 +213,8 @@ map <leader>ss :setlocal spell!<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
+" assuming you want to use snipmate snippet engine
+let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
